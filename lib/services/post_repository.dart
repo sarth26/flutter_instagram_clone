@@ -6,7 +6,7 @@ class PostRepository {
 Future<List<PostModel>> fetchPosts(int page) async {
 
   await Future.delayed(
-    const Duration(seconds: 10),
+    const Duration(seconds: 2),
   );
 
   const int limit = 5;
