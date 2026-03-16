@@ -21,17 +21,15 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
     super.initState();
 
     scrollController.addListener(() {
+      if (!scrollController.hasClients) return;
 
-  if (!scrollController.hasClients) return;
+      final maxScroll = scrollController.position.maxScrollExtent;
+      final currentScroll = scrollController.position.pixels;
 
-  final maxScroll = scrollController.position.maxScrollExtent;
-  final currentScroll = scrollController.position.pixels;
-
-  if (currentScroll >= maxScroll * 0.9) {
-    Provider.of<PostProvider>(context, listen: false).loadMorePosts();
-  }
-
-});
+      if (currentScroll >= maxScroll * 0.9) {
+        Provider.of<PostProvider>(context, listen: false).loadMorePosts();
+      }
+    });
   }
 
   @override
@@ -74,22 +72,12 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
                   }, childCount: postProvider.posts.length),
                 ),
 
-          // if (postProvider.isLoadingMore)
-          //   const SliverToBoxAdapter(
-          //     child: Padding(
-          //       padding: EdgeInsets.symmetric(vertical: 20),
-          //       child: Center(child: CircularProgressIndicator()),
-          //     ),
-          //   ),
-
           if (postProvider.isLoadingMore)
-  SliverToBoxAdapter(
-    child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 40),
-      alignment: Alignment.center,
-      child: const CircularProgressIndicator(),
-    ),
-  ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return const PostShimmer();
+              }, childCount: 2),
+            ),
         ],
       ),
     );

@@ -113,15 +113,6 @@ List<PostModel> dummyPosts = [
   ),
 
   PostModel(
-    username: "wildlife_clicks",
-    profileImage: "https://i.pravatar.cc/150?img=30",
-    caption: "Wildlife moment 🐾",
-    images: [
-      "https://images.unsplash.com/photo-1501706362039-c6e80948bb0c"
-    ],
-  ),
-
-  PostModel(
     username: "road_trip",
     profileImage: "https://i.pravatar.cc/150?img=32",
     caption: "Road trip adventures 🚗",
@@ -139,14 +130,14 @@ List<PostModel> dummyPosts = [
     ],
   ),
 
-  PostModel(
-    username: "fashion_daily",
-    profileImage: "https://i.pravatar.cc/150?img=36",
-    caption: "OOTD ✨",
-    images: [
-      "https://images.unsplash.com/photo-1520975698519-59d5f8f1c1c1"
-    ],
-  ),
+  // PostModel(
+  //   username: "fashion_daily",
+  //   profileImage: "https://i.pravatar.cc/150?img=36",
+  //   caption: "OOTD ✨",
+  //   images: [
+  //     "https://images.unsplash.com/photo-1520975698519-59d5f8f1c1c1"
+  //   ],
+  // ),
 
   PostModel(
     username: "sunrise_magic",
